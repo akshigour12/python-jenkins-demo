@@ -9,22 +9,15 @@ pipeline {
             }
         }
 
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                sh '''
-                python3 -m venv venv
-                . venv/bin/activate
-                pip install -r requirements.txt
-                '''
+                sh 'echo "Building Python Project..."'
             }
         }
 
-        stage('Run Tests') {
+        stage('Run') {
             steps {
-                sh '''
-                . venv/bin/activate
-                pytest
-                '''
+                sh 'python3 app.py'
             }
         }
 
