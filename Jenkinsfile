@@ -1,25 +1,15 @@
-pipeline {
-    agent any
+node {
 
-    stages {
-
-        stage('Checkout') {
-            steps {
-                checkout scm
-            }
-        }
-
-        stage('Build') {
-            steps {
-                sh 'echo "Building Python Project..."'
-            }
-        }
-
-        stage('Run') {
-            steps {
-                sh 'python3 app.py'
-            }
-        }
-
+    stage('Build') {
+        echo 'Building the application...'
     }
+
+    stage('Run') {
+        echo 'Running the application...'
+    }
+
+    stage('Deploy') {
+        echo 'Deploying the application...'
+    }
+
 }
